@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "driver.js": "^0.9.2",
     "element-ui": "^2.5.4",
-    "fuse.js": "^3.4.2",
     "js-cookie": "^2.2.0",
     "mockjs": "^1.0.1-beta3",
     "normalize.css": "^8.0.1",
@@ -47,7 +47,8 @@
       "no-console": [
         0,
         false
-      ]
+      ],
+      "no-unused-vars": 0
     },
     "parserOptions": {
       "parser": "babel-eslint"
