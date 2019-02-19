@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Layout from '@/views/layout/Layout'
+
 Vue.use(Router)
 /**
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
@@ -18,6 +20,17 @@ Vue.use(Router)
   }
 **/
 export const constantRouterMap=[
+    // {
+    //   path: '/redirect',
+    //   component: Layout,
+    //   hidden: true,
+    //   children: [
+    //     {
+    //       path: '/redirect/:path*',
+    //       component: () => import('@/views/redirect/index')
+    //     }
+    //   ]
+    // },
     {
         path:'/login',
         component:() => import('@/views/login/index'),
