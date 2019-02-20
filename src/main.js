@@ -12,7 +12,8 @@ import '@/styles/index.scss' // global css
 
 import './icons' // icon
 import './errorLog' // error log
-// import './mock' // simulation data
+import './permission' // permission control
+import './mock' // simulation data
 
 
 Vue.use(Element, {

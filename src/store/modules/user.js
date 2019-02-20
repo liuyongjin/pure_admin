@@ -26,12 +26,12 @@ const user = {
     SET_INTRODUCTION: (state, introduction) => {
       state.introduction = introduction
     },
-    SET_SETTING: (state, setting) => {
-      state.setting = setting
-    },
-    SET_STATUS: (state, status) => {
-      state.status = status
-    },
+    // SET_SETTING: (state, setting) => {
+    //   state.setting = setting
+    // },
+    // SET_STATUS: (state, status) => {
+    //   state.status = status
+    // },
     SET_NAME: (state, name) => {
       state.name = name
     },
@@ -64,6 +64,7 @@ const user = {
       return new Promise((resolve, reject) => {
         getUserInfo(state.token).then(response => {
           // 由于mockjs 不支持自定义状态码只能这样hack
+
           if (!response.data) {
             reject('Verification failed, please login again.')
           }

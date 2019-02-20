@@ -1,8 +1,10 @@
 <template>
-  <el-color-picker
+  <div class="theme-switch">
+    <el-color-picker
     v-model="theme"
     class="theme-picker"
     popper-class="theme-picker-dropdown"/>
+  </div>
 </template>
 
 <script>

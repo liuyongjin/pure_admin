@@ -80,7 +80,6 @@ export default {
       },
       passwordType: 'password',
       loading: false,
-      showDialog: false,
       redirect: undefined
     }
   },
