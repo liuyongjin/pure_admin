@@ -21,20 +21,21 @@ export default {
   },
   watch: {
     theme(val) {
+      console.log(this.theme)
       const oldVal = this.theme
       if (typeof val !== 'string') return
       const themeCluster = this.getThemeCluster(val.replace('#', ''))
       const originalCluster = this.getThemeCluster(oldVal.replace('#', ''))
-      console.log(themeCluster, originalCluster)
+      // console.log(themeCluster, originalCluster)
       const getHandler = (variable, id) => {
         return () => {
           const originalCluster = this.getThemeCluster(ORIGINAL_THEME.replace('#', ''))
           const newStyle = this.updateStyle(this[variable], originalCluster, themeCluster)
-
           let styleTag = document.getElementById(id)
           if (!styleTag) {
             styleTag = document.createElement('style')
             styleTag.setAttribute('id', id)
+            // console.log(styleTag)
             document.head.appendChild(styleTag)
           }
           styleTag.innerText = newStyle
@@ -81,6 +82,7 @@ export default {
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
           this[variable] = xhr.responseText.replace(/@font-face{[^}]+}/, '')
+          // console.log(this[variable])
           callback()
         }
       }
@@ -89,6 +91,7 @@ export default {
     },
 
     getThemeCluster(theme) {
+      // console.log(theme)
       const tintColor = (color, tint) => {
         let red = parseInt(color.slice(0, 2), 16)
         let green = parseInt(color.slice(2, 4), 16)
