@@ -1,4 +1,4 @@
-# ljb_admin
+# pure_admin
 
 ## Project setup
 ```
@@ -27,3 +27,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+![avatar](/home/picture/1.png)
