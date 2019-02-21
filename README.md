@@ -1,5 +1,8 @@
 # pure_admin
 
+## Project description
+this is a pure_admin copy from vue-element-admin hahaha! 
+
 ## Project setup
 ```
 npm install
@@ -24,6 +27,8 @@ npm run test
 ```
 npm run lint
 ```
+### eference
+See [Reference](https://panjiachen.github.io/vue-element-admin-site/zh/guide/).
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
