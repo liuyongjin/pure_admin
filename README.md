@@ -23,7 +23,7 @@ cd pure_admin
 npm install
 
 # develop
-npm run dev
+npm run serve
 ```
 
 ### 官方地址

@@ -23,7 +23,7 @@ cd pure_admin
 npm install
 
 # develop
-npm run dev
+npm run serve
 ```
 
 ### The official address
