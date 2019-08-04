@@ -1,16 +1,16 @@
 # pure_admin
 
-简体中文 | [English](./README-en-US.md)
+[简体中文](./README.md) | English
 
-## 项目描述
+## Project description
 
-简化官方项目[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)后台模版
+Simplify the official project [vue - element - admin] (https://github.com/PanJiaChen/vue-element-admin) background template
 
-## 项目展示
+## Projects show
 
-[演示](https://liuyongjin.github.io/show_admin/#/login)
+[demo](https://liuyongjin.github.io/show_admin/#/login)
 
-## 项目启动
+## Project start
 
 ```bash
 # clone the project
@@ -26,12 +26,12 @@ npm install
 npm run dev
 ```
 
-### 官方地址
+### The official address
 
 [vue-element-admin](https://panjiachen.github.io/vue-element-admin-site/zh/guide).
 
 
-## 项目截图
+## Project screenshots
 ![avatar](./public/screen.png)
 
 ## License
