@@ -32,6 +32,9 @@ npm run dev
 
 
 ## Project screenshots
+
+![avatar](./public/screen1.png)
+
 ![avatar](./public/screen.png)
 
 ## License

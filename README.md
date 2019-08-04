@@ -32,7 +32,11 @@ npm run dev
 
 
 ## 项目截图
+
+![avatar](./public/screen1.png)
+
 ![avatar](./public/screen.png)
+
 
 ## License
 
