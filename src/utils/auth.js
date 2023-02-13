@@ -1,15 +1,24 @@
-import Cookies from 'js-cookie'
-
-const TokenKey = '__LJB__ADMIN__'
+import jnpf from '@/utils/jnpf'
 
 export function getToken() {
-  return Cookies.get(TokenKey)
+  return jnpf.storageGet('token')
 }
 
 export function setToken(token) {
-  return Cookies.set(TokenKey, token)
+  return jnpf.storageSet({ token })
 }
 
 export function removeToken() {
-  return Cookies.remove(TokenKey)
+  return jnpf.storageRemove('token')
+}
+
+export function getLock() {
+  return jnpf.storageGet('lock')
+}
+
+export function setLock(lock) {
+  return jnpf.storageSet({ lock })
+}
+export function removeLock() {
+  return jnpf.storageRemove('lock')
 }
