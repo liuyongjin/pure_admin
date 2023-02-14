@@ -31,19 +31,7 @@ export const constantRouterMap = [
       }
     ]
   },
-  {
-    path: '',
-    component: Layout,
-    redirect: 'dashboard',
-    children: [
-      {
-        path: 'dashboard',
-        component: () => import('@/views/dashboard/index'),
-        name: 'Dashboard',
-        meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
-      }
-    ]
-  },
+  
   {
     path: '/login',
     component: () => import('@/views/login/index'),
@@ -69,13 +57,13 @@ export const asyncRouterMap = [{
   children: [
     {
       path: 'delivery',
-      component: () => import('@/views/delivery/'),
+      component: () => import('@/views/errorPage/401'),
       name: 'delivery',
       meta: { title: 'delivery', noCache: true }
     },
     {
       path: 'receipt',
-      component: () => import('@/views/receipt/'),
+      component: () => import('@/views/errorPage/404'),
       name: 'receipt',
       meta: { title: 'receipt', noCache: true }
     },

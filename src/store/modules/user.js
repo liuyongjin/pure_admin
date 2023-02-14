@@ -1,5 +1,7 @@
-import { loginByUsername, logout, getUserInfo } from '@/api/login'
+import { login, logout, getUserInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import md5 from 'js-md5';
+import qs from 'qs'
 
 const user = {
   state: {
@@ -46,12 +48,23 @@ const user = {
   actions: {
     // 用户名登录
     LoginByUsername({ commit }, userInfo) {
-      const username = userInfo.username.trim()
+      const { account, password } = userInfo
+
       return new Promise((resolve, reject) => {
-        loginByUsername(username, userInfo.password).then(response => {
-          const data = response.data
+        login(qs.stringify({
+          account: account.trim(),
+          password: md5(password),
+          client_id: 'admin',
+          client_secret: '123456',
+          scope: 'all',
+          grant_type: 'password'
+        })).then(response => {
+          const { data } = response.data
+          const layoutList = ['classic', 'functional', 'plain', 'blend']
+          let layoutType = data.theme && layoutList.indexOf(data.theme) > -1 ? data.theme : 'classic'
           commit('SET_TOKEN', data.token)
-          setToken(response.data.token)
+          // console.log(data);
+          setToken(data.token);
           resolve()
         }).catch(error => {
           reject(error)
@@ -68,10 +81,10 @@ const user = {
           if (!response.data) {
             reject('Verification failed, please login again.')
           }
-          const data = response.data
+          const data = response.data.data
 
-          if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
-            commit('SET_ROLES', data.roles)
+          if (data.permissionList && data.permissionList.length > 0) { // 验证返回的roles是否是一个非空数组
+            commit('SET_ROLES', data.permissionList)
           } else {
             reject('getInfo: roles must be a non-null array!')
           }

@@ -3,10 +3,11 @@ import { Message } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
 let base_url;
+
 if (process.env.NODE_ENV === 'production') {
-  base_url = ''
+  base_url = 'http://47.97.7.175:8081'
 } else if (process.env.NODE_ENV === 'development') {
-  base_url = ''
+  base_url = 'http://47.97.7.175:8081'
 }
 // create an axios instance
 const service = axios.create({
@@ -14,22 +15,41 @@ const service = axios.create({
   timeout: 5000 // request timeout
 })
 
+
+
 // request interceptor
 service.interceptors.request.use(
   config => {
-    // Do something before request is sent
+    if (config.url.indexOf('http') > -1) config.baseURL = ''
+    // 部分接口timeout时间单独处理
+    if (config.url.indexOf('SynThirdInfo') > -1 || config.url.indexOf('extend/Email/Receive') > -1 ||
+      config.url.indexOf('Permission/Authority/Data') > -1 || config.url.indexOf('DataSync/Actions/Execute') > -1) {
+      config.timeout = 100000
+    }
+    // do something before request is sent
     if (store.getters.token) {
-      // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
-      config.headers['X-Token'] = getToken()
+      config.headers['Authorization'] = getToken()
+    }
+    if (config.method == 'get') {
+      config.params = config.data
+    }
+    let timestamp = Date.parse(new Date()) / 1000
+    if (config.url.indexOf('?') > -1) {
+      config.url += `&n=${timestamp}`
+    } else {
+      config.url += `?n=${timestamp}`
     }
     return config
   },
   error => {
-    // Do something with request error
-    console.log(error) // for debug
-    Promise.reject(error)
+    // do something with request error
+    if (process.env.NODE_ENV === 'development') {
+      console.log(error) // for debug
+    }
+    return Promise.reject(error)
   }
 )
+
 
 // response interceptor
 service.interceptors.response.use(

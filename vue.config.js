@@ -1,3 +1,5 @@
+const define = require('./src/utils/define.js')
+
 module.exports = {
     chainWebpack: config => {
         // 一个规则里的 基础Loader
@@ -16,6 +18,24 @@ module.exports = {
                 symbolId: 'icon-[name]'
             })
 
-    }
+    },
+    devServer: {
+        open: false,
+        overlay: {
+          warnings: false,
+          errors: true
+        },
+        // before: require('./mock/mock-server.js'),
+        // 接口转发
+        proxy: {
+          '/dev': {
+            target: define.APIURl,
+            changeOrigin: true,
+            pathRewrite: {
+              '^/dev': ''
+            }
+          }
+        }
+      },
 
 }
