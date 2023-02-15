@@ -2,8 +2,10 @@
   <div class="JNPF-common-layout">
 
     <div class="JNPF-common-layout-center">
+
+      
       <el-row class="JNPF-common-search-box" :gutter="16">
-        <el-form @submit.native.prevent>
+        <el-form @submit.native.prevent size="small">
           <el-col :span="6">
             <el-form-item label="规格">
               <el-input v-model="query.spec" placeholder="请输入" clearable></el-input>
@@ -43,6 +45,8 @@
           </el-col>
         </el-form>
       </el-row>
+
+
       <div class="JNPF-common-layout-main JNPF-flex-main">
         <div class="JNPF-common-head">
           <div>
@@ -55,7 +59,7 @@
               <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
                        @click="reset()"/>
             </el-tooltip>
-            <screenfull isContainer/>
+ 
           </div>
         </div>
         <JNPF-table v-loading="listLoading" :data="list" @sort-change='sortChange'>
@@ -110,13 +114,13 @@
 <script>
 import request from '@/utils/request'
 import JNPFTable from '@/components/JNPF-table'
-import Screenfull from '@/components/Screenfull'
+import pagination from '@/components/Pagination'
 // import {getDictionaryDataSelector} from '@/api/systemData/dictionary'
 import JNPFForm from './Form'
 // import {previewDataInterface} from '@/api/systemData/dataInterface'
 
 export default {
-  components: {JNPFForm, Screenfull, JNPFTable},
+  components: {JNPFForm, JNPFTable , pagination},
   data() {
     return {
       showAll: false,
@@ -136,7 +140,7 @@ export default {
       total: 0,
       listQuery: {
         currentPage: 1,
-        pageSize: 20,
+        pageSize: 10,
         sort: "desc",
         sidx: "",
       },
@@ -172,7 +176,7 @@ export default {
         url: '/api/project/CusDelivery/isCustomer',
         method: 'get'
       }).then(res => {
-        this.isCustomer = res.data;
+        this.isCustomer = res.data.data;
       })
     },
     sortChange({column, prop, order}) {
@@ -213,7 +217,7 @@ export default {
         }).then(res => {
           this.$message({
             type: 'success',
-            message: res.msg,
+            message: res.data.msg,
             onClose: () => {
               this.initData()
             }
@@ -229,7 +233,7 @@ export default {
       }).then(res => {
         this.$message({
           type: 'success',
-          message: res.msg,
+          message: res.data.msg,
           onClose: () => {
             this.initData()
           }
@@ -248,23 +252,11 @@ export default {
         this.$refs.ExportBox.init(this.columnList)
       })
     },
-    download(data) {
-      let query = {...data, ...this.listQuery, ...this.query}
-      request({
-        url: `/api/project/CusReceipt/Actions/Export`,
-        method: 'GET',
-        data: query
-      }).then(res => {
-        if (!res.data.url) return
-        window.location.href = this.define.comUrl + res.data.url
-        this.$refs.ExportBox.visible = false
-        this.exportBoxVisible = false
-      })
-    },
+ 
     search() {
       this.listQuery = {
         currentPage: 1,
-        pageSize: 20,
+        pageSize: 10,
         sort: "desc",
         sidx: "",
       }
@@ -280,7 +272,7 @@ export default {
       }
       this.listQuery = {
         currentPage: 1,
-        pageSize: 20,
+        pageSize: 10,
         sort: "desc",
         sidx: "",
       }
@@ -289,3 +281,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+</style>

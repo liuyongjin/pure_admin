@@ -150,7 +150,7 @@ export default {
         url: '/api/project/CusFRPSpec/selector',
         method: 'get'
       }).then(res => {
-        this.frpSpecSelector = res.data;
+        this.frpSpecSelector = res.data.data;
       })
     },
     initSpecSelector() {
@@ -158,7 +158,7 @@ export default {
         url: '/api/project/CusSpec/selector',
         method: 'get'
       }).then(res => {
-        this.specSelector = res.data;
+        this.specSelector = res.data.data;
       })
     },
     init(id, isDetail) {
@@ -173,7 +173,7 @@ export default {
             url: '/api/project/CusReceipt/' + this.dataForm.id,
             method: 'get'
           }).then(res => {
-            this.dataInfo(res.data)
+            this.dataInfo(res.data.data)
             this.loading = false
           })
         }
@@ -197,7 +197,7 @@ export default {
           data: _data
         }).then((res) => {
           this.$message({
-            message: res.msg,
+            message: res.data.msg,
             type: 'success',
             duration: 1000,
             onClose: () => {
@@ -213,7 +213,7 @@ export default {
           data: _data
         }).then((res) => {
           this.$message({
-            message: res.msg,
+            message: res.data.msg,
             type: 'success',
             duration: 1000,
             onClose: () => {

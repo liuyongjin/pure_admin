@@ -1,7 +1,8 @@
 <template>
-  <el-table :data="data" ref="JNPFTable" class="JNPF-common-table" :height="height"
-    :element-loading-text="$t('common.loadingText')" v-bind="$attrs" v-on="$listeners"
-    :border="border">
+ <div style="padding:0 10px">
+  <el-table :data="data" ref="JNPFTable"  class="JNPF-common-table"
+    :element-loading-text="'加载中'" v-bind="$attrs" v-on="$listeners" :row-style="{height:'42px'}" :cell-style="{padding:'0'}"
+    :border="border" size="small">
     <el-table-column type="selection" width="50" v-if="hasC" align="center" />
     <el-table-column type="index" width="50" label="序号" v-if="hasNO" align="center" />
     <slot></slot>
@@ -9,6 +10,7 @@
       <el-empty description="暂无数据" :image-size="120"></el-empty>
     </template>
   </el-table>
+ </div>
 </template>
 
 <script>
@@ -38,7 +40,7 @@ export default {
       default: false
     },
     height: {
-      default: '100%'
+      default: '460px'
     }
   },
   watch: {

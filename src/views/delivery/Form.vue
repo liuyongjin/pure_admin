@@ -67,21 +67,39 @@ export default {
   props: [],
   data() {
     return {
-      visible: false,
-      loading: false,
-      isDetail: false,
-      dataForm: {
-        customerCode: '',
-        customerName: '',
-        deliveryDate: '',
-        frpSpec: '',
-        deliveryBoxQty: '',
-        deliveryTubeQty: '',
+        visible: false,
+        loading: false,
+        isDetail: false,
+        dataForm: {
+          customerCode: '',
+          customerName: '',
+          deliveryDate: '',
+          frpSpec: '',
+          deliveryBoxQty: '',
+          deliveryTubeQty: '',
+        },
+        customerSelector: [],
+        frpSpecSelector: [],
+        rules:{
+          customerCode: [{
+            required: true,
+            message: "请选择客户",
+            trigger: "blur"
+          }],
+          //验证日期
+          deliveryDate:[{ 
+            type: 'date', 
+            required: true, 
+            message: '请选择发货日期', 
+            trigger: 'blur' 
+          }],
+          frpSpec:[{ 
+            required: true, 
+            message: '请选择FRP规格', 
+            trigger: 'blur' 
+          }],
+            
       },
-      customerSelector: [],
-      frpSpecSelector: [],
-      rules:
-        {},
 
     }
   },
@@ -99,7 +117,7 @@ export default {
         url: '/api/project/CusFRPSpec/selector',
         method: 'get'
       }).then(res => {
-        this.frpSpecSelector = res.data;
+        this.frpSpecSelector = res.data.data;
       })
     },
     initCustomerSelector() {
@@ -107,7 +125,7 @@ export default {
         url: '/api/permission/Organize/DepartmentByParent/customer',
         method: 'get'
       }).then(res => {
-        this.customerSelector = res.data;
+        this.customerSelector = res.data.data;
       })
     },
     customerChange(value) {
@@ -130,7 +148,7 @@ export default {
             url: '/api/project/CusDelivery/' + this.dataForm.id,
             method: 'get'
           }).then(res => {
-            this.dataInfo(res.data)
+            this.dataInfo(res.data.data)
             this.loading = false
           })
         }
@@ -154,7 +172,7 @@ export default {
           data: _data
         }).then((res) => {
           this.$message({
-            message: res.msg,
+            message: res.data.msg,
             type: 'success',
             duration: 1000,
             onClose: () => {
@@ -170,7 +188,7 @@ export default {
           data: _data
         }).then((res) => {
           this.$message({
-            message: res.msg,
+            message: res.data.msg,
             type: 'success',
             duration: 1000,
             onClose: () => {
