@@ -99,8 +99,7 @@
             </template>
           </el-table-column>
         </JNPF-table>
-        <pagination :total="total" :page.sync="listQuery.currentPage" :limit.sync="listQuery.pageSize"
-                    @pagination="initData"/>
+        <pagination :total="total" :page.sync="listQuery.currentPage" :limit.sync="listQuery.pageSize" @pagination="initData"/>
       </div>
     </div>
     <JNPF-Form v-if="formVisible" ref="JNPFForm" @refresh="refresh"/>
@@ -110,12 +109,14 @@
 
 <script>
 import request from '@/utils/request'
+import JNPFTable from '@/components/JNPF-table'
+import Screenfull from '@/components/Screenfull'
 // import {getDictionaryDataSelector} from '@/api/systemData/dictionary'
 import JNPFForm from './Form'
 // import {previewDataInterface} from '@/api/systemData/dataInterface'
 
 export default {
-  components: {JNPFForm},
+  components: {JNPFForm, Screenfull, JNPFTable},
   data() {
     return {
       showAll: false,
@@ -190,13 +191,14 @@ export default {
         method: 'post',
         data: _query
       }).then(res => {
+        let result = res.data
         var _list = [];
-        for (let i = 0; i < res.data.list.length; i++) {
-          let _data = res.data.list[i];
+        for (let i = 0; i < result.data.list.length; i++) {
+          let _data = result.data.list[i];
           _list.push(_data)
         }
         this.list = _list
-        this.total = res.data.pagination.total
+        this.total = result.data.pagination.total
 
         this.listLoading = false
       })

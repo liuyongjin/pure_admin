@@ -1,8 +1,8 @@
 <template>
-  <div class="JNPF-common-layout">
+  <div class="common-layout">
 
-    <div class="JNPF-common-layout-center">
-      <el-row class="JNPF-common-search-box" :gutter="16">
+    <div class="common-layout-center">
+      <el-row class="common-search-box" :gutter="16">
         <el-form @submit.native.prevent>
           <el-col :span="6">
             <el-form-item label="客户">
@@ -30,22 +30,22 @@
           </el-col>
         </el-form>
       </el-row>
-      <div class="JNPF-common-layout-main JNPF-flex-main">
-        <div class="JNPF-common-head">
+
+        <div class="common-head">
           <div>
             <el-button type="primary" icon="el-icon-plus" v-if="!isCustomer"
                        @click="addOrUpdateHandle()">新增
             </el-button>
           </div>
-          <div class="JNPF-common-head-right">
+          <div class="common-head-right">
             <el-tooltip effect="dark" content="刷新" placement="top">
-              <el-link icon="icon-ym icon-ym-Refresh JNPF-common-head-icon" :underline="false"
+              <el-link icon="icon-ym icon-ym-Refresh common-head-icon" :underline="false"
                        @click="reset()"/>
             </el-tooltip>
             <screenfull isContainer/>
           </div>
-        </div>
-        <JNPF-table v-loading="listLoading" :data="list" @sort-change='sortChange'>
+   
+        <el-table v-loading="listLoading" :data="list" @sort-change='sortChange'>
           <el-table-column prop="customerName" label="客户" width="0" align="left"
           />
           <el-table-column prop="deliveryDate" label="发货日期" width="0" align="left"
@@ -62,7 +62,7 @@
               <el-button type="text" v-if="!isCustomer && scope.row.status === 1"
                          @click="addOrUpdateHandle(scope.row.id)">编辑
               </el-button>
-              <el-button type="text" class="JNPF-table-delBtn" v-if="!isCustomer && scope.row.status === 1"
+              <el-button type="text" class="table-delBtn" v-if="!isCustomer && scope.row.status === 1"
                          @click="handleDel(scope.row.id)">删除
               </el-button>
               <el-button type="text" style="color:green" v-if="isCustomer && scope.row.status === 1"
@@ -71,12 +71,12 @@
               <span v-if="scope.row.status === 2" style="color:#af39b1">已确认</span>
             </template>
           </el-table-column>
-        </JNPF-table>
+        </el-table>
         <pagination :total="total" :page.sync="listQuery.currentPage" :limit.sync="listQuery.pageSize"
                     @pagination="initData"/>
       </div>
     </div>
-    <JNPF-Form v-if="formVisible" ref="JNPFForm" @refresh="refresh"/>
+    <JNPFForm v-if="formVisible" ref="JNPFForm" @refresh="refresh"/>
  
   </div>
 </template>
@@ -85,11 +85,15 @@
 import request from '@/utils/request'
 // import {getDictionaryDataSelector} from '@/api/systemData/dictionary'
 import JNPFForm from './Form'
+import Screenfull from '@/components/Screenfull'
+import pagination from '@/components/Pagination'
+
+
 
 // import {previewDataInterface} from '@/api/systemData/dataInterface'
 
 export default {
-  components: {JNPFForm},
+  components: {JNPFForm, Screenfull, pagination},
   data() {
     return {
       query: {
@@ -154,13 +158,15 @@ export default {
         method: 'post',
         data: _query
       }).then(res => {
+        let result = res.data
+
         var _list = [];
-        for (let i = 0; i < res.data.list.length; i++) {
-          let _data = res.data.list[i];
+        for (let i = 0; i < result.data.list.length; i++) {
+          let _data = result.data.list[i];
           _list.push(_data)
         }
         this.list = _list
-        this.total = res.data.pagination.total
+        this.total = result.data.pagination.total
 
         this.listLoading = false
       })

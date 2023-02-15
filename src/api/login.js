@@ -13,8 +13,8 @@ export function login(data) {
 
 export function logout() {
     return request({
-        url: '/dev/api/oauth/Logout',
-        method: 'post'
+        url: '/api/oauth/Logout',
+        method: 'get'
     })
 }
 

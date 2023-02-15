@@ -111,7 +111,7 @@ export default {
           this.loading = true;
           this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
             this.loading = false
-            this.$router.push({ path: this.redirect || '/404' })
+            this.$router.push({ path: this.redirect || '/cus/delivery' })
           }).catch(() => {
             this.loading = false
           })

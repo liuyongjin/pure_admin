@@ -19,23 +19,6 @@ module.exports = {
             })
 
     },
-    devServer: {
-        open: false,
-        overlay: {
-          warnings: false,
-          errors: true
-        },
-        // before: require('./mock/mock-server.js'),
-        // 接口转发
-        proxy: {
-          '/dev': {
-            target: define.APIURl,
-            changeOrigin: true,
-            pathRewrite: {
-              '^/dev': ''
-            }
-          }
-        }
-      },
+
 
 }
