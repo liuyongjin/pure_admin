@@ -6,11 +6,11 @@
       
       <el-row class="JNPF-common-search-box" :gutter="16">
         <el-form @submit.native.prevent size="small">
-          <el-col :span="6">
-            <el-form-item label="规格">
-              <el-input v-model="query.spec" placeholder="请输入" clearable></el-input>
-            </el-form-item>
-          </el-col>
+<!--          <el-col :span="6">-->
+<!--            <el-form-item label="规格">-->
+<!--              <el-input v-model="query.spec" placeholder="请输入" clearable></el-input>-->
+<!--            </el-form-item>-->
+<!--          </el-col>-->
           <el-col :span="6">
             <el-form-item label="FRP规格">
               <el-input v-model="query.frpSpec" placeholder="请输入" clearable></el-input>
@@ -24,13 +24,11 @@
               </el-date-picker>
             </el-form-item>
           </el-col>
-          <template v-if="showAll">
-            <el-col :span="6">
-              <el-form-item label="客户">
-                <el-input v-model="query.customerName" placeholder="请输入" clearable></el-input>
-              </el-form-item>
-            </el-col>
-          </template>
+          <el-col :span="6">
+            <el-form-item label="客户">
+              <el-input v-model="query.customerName" placeholder="请输入" clearable></el-input>
+            </el-form-item>
+          </el-col>
           <el-col :span="6">
             <el-form-item>
               <el-button type="primary" icon="el-icon-search" @click="search()">查询</el-button>
@@ -63,18 +61,18 @@
           </div>
         </div>
         <JNPF-table v-loading="listLoading" :data="list" @sort-change='sortChange'>
-          <el-table-column prop="spec" label="规格" width="0" align="left"
-          />
+<!--          <el-table-column prop="spec" label="规格" width="0" align="left"-->
+<!--          />-->
           <el-table-column prop="frpSpec" label="FRP规格" width="0" align="left"
           />
           <el-table-column prop="deliveryDate" label="发货日期" width="0" align="left"
           />
           <el-table-column prop="customerName" label="客户" width="0" align="left"
           />
-          <el-table-column prop="deliveryBoxQty" label="发货木箱(个) " width="0" align="left"
-          />
-          <el-table-column prop="deliveryTubeQty" label="发货管子(根)" width="0" align="left"
-          />
+<!--          <el-table-column prop="deliveryBoxQty" label="发货木箱(个) " width="0" align="left"-->
+<!--          />-->
+<!--          <el-table-column prop="deliveryTubeQty" label="发货管子(根)" width="0" align="left"-->
+<!--          />-->
           <el-table-column prop="recycleBoxQty" label="回收木箱(个)" width="0" align="left"
           />
           <el-table-column prop="recycleTubeQty" label="回收管子(根)" width="0" align="left"
@@ -83,10 +81,10 @@
           />
           <el-table-column prop="returnTubeQty" label="退货管芯(根)" width="0" align="left"
           />
-          <el-table-column prop="onHandBoxQty" label="结存木箱(个)" width="0" align="left"
-          />
-          <el-table-column prop="onHandFrpTubeQty" label="结存FRP管芯(根)" width="0" align="left"
-          />
+<!--          <el-table-column prop="onHandBoxQty" label="结存木箱(个)" width="0" align="left"-->
+<!--          />-->
+<!--          <el-table-column prop="onHandFrpTubeQty" label="结存FRP管芯(根)" width="0" align="left"-->
+<!--          />-->
           <el-table-column label="操作" fixed="right"
                            width="100">
             <template slot-scope="scope">

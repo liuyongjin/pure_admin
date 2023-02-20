@@ -25,6 +25,16 @@
             </el-form-item>
           </el-col>
           <el-col :span="24">
+            <el-form-item label="规格" prop="spec">
+              <el-select v-model="dataForm.spec" filterable placeholder="请选择" clearable
+                         :style='{"width":"100%"}'>
+                <el-option v-for="(item, index) in specSelector"
+                           :key="item.spec" :label="item.spec" :value="item.spec">
+                </el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="24">
             <el-form-item label="FRP规格" prop="frpSpec">
               <el-select v-model="dataForm.frpSpec" filterable placeholder="请选择" clearable
                          :style='{"width":"100%"}'>
@@ -74,11 +84,13 @@ export default {
           customerCode: '',
           customerName: '',
           deliveryDate: '',
+          spec: '',
           frpSpec: '',
           deliveryBoxQty: '',
           deliveryTubeQty: '',
         },
         customerSelector: [],
+        specSelector: [],
         frpSpecSelector: [],
         rules:{
           customerCode: [{
@@ -110,8 +122,17 @@ export default {
   mounted() {
     this.initCustomerSelector();
     this.initFRPSpecSelector();
+    this.initSpecSelector();
   },
   methods: {
+    initSpecSelector() {
+      request({
+        url: '/api/project/CusSpec/selector',
+        method: 'get'
+      }).then(res => {
+        this.specSelector = res.data.data;
+      })
+    },
     initFRPSpecSelector() {
       request({
         url: '/api/project/CusFRPSpec/selector',

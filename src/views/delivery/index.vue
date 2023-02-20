@@ -126,6 +126,7 @@ export default {
         {prop: 'customerCode', label: '客户Code'},
         {prop: 'customerName', label: '客户'},
         {prop: 'deliveryDate', label: '发货日期'},
+        {prop: 'spec', label: '规格'},
         {prop: 'frpSpec', label: 'FRP规格'},
         {prop: 'deliveryBoxQty', label: '发货木箱'},
         {prop: 'deliveryTubeQty', label: '发货管子数量'},

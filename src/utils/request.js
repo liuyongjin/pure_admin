@@ -5,9 +5,9 @@ import { getToken } from '@/utils/auth'
 let base_url;
 
 if (process.env.NODE_ENV === 'production') {
-  base_url = 'http://47.97.7.175:8081'
+  base_url = 'http://www.tongbokj.com:8100'
 } else if (process.env.NODE_ENV === 'development') {
-  base_url = 'http://47.97.7.175:8081'
+  base_url = 'http://localhost:30000'
 }
 // create an axios instance
 const service = axios.create({
