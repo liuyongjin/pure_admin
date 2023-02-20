@@ -7,7 +7,7 @@ export default{
       errorPages: '错误页面',
       cusname:'客户发货',
       delivery:'发货确认',
-      receipt:'收货确认',
+      receipt:'回收确认',
       page401: '401',
       page404: '404',
       errorLog: '错误日志',

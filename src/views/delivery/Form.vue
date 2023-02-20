@@ -25,7 +25,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="24">
-            <el-form-item label="规格" prop="spec">
+            <el-form-item label="铜箔规格" prop="spec">
               <el-select v-model="dataForm.spec" filterable placeholder="请选择" clearable
                          :style='{"width":"100%"}'>
                 <el-option v-for="(item, index) in specSelector"
@@ -45,7 +45,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="24">
-            <el-form-item label="发货木箱" prop="deliveryBoxQty">
+            <el-form-item label="发货木箱数量" prop="deliveryBoxQty">
               <el-input-number v-model="dataForm.deliveryBoxQty" placeholder="数字文本"
                                style="width: 100%;" :step="1" controls-position='right'>
               </el-input-number>
@@ -104,6 +104,11 @@ export default {
             required: true, 
             message: '请选择发货日期', 
             trigger: 'blur' 
+          }],
+          spec:[{
+            required: true,
+            message: '请选择铜箔规格',
+            trigger: 'blur'
           }],
           frpSpec:[{ 
             required: true, 

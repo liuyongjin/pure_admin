@@ -18,7 +18,7 @@
         </el-form-item>
       </el-col>
       <el-col :span="4">
-        <el-form-item label="规格">
+        <el-form-item label="铜箔规格">
           <el-input v-model="query.spec" placeholder="请输入" clearable></el-input>
         </el-form-item>
       </el-col>
@@ -55,11 +55,11 @@
       />
       <el-table-column prop="deliveryDate" label="发货日期" width="0" align="left"
       />
-      <el-table-column prop="spec" label="规格" width="0" align="left"
+      <el-table-column prop="spec" label="铜箔规格" width="0" align="left"
       />
       <el-table-column prop="frpSpec" label="FRP规格" width="0" align="left"
       />
-      <el-table-column prop="deliveryBoxQty" label="发货木箱" width="0" align="left"
+      <el-table-column prop="deliveryBoxQty" label="发货木箱数量" width="0" align="left"
       />
       <el-table-column prop="deliveryTubeQty" label="发货管子数量" width="0" align="left"
       />
@@ -126,9 +126,9 @@ export default {
         {prop: 'customerCode', label: '客户Code'},
         {prop: 'customerName', label: '客户'},
         {prop: 'deliveryDate', label: '发货日期'},
-        {prop: 'spec', label: '规格'},
+        {prop: 'spec', label: '铜箔规格'},
         {prop: 'frpSpec', label: 'FRP规格'},
-        {prop: 'deliveryBoxQty', label: '发货木箱'},
+        {prop: 'deliveryBoxQty', label: '发货木箱数量'},
         {prop: 'deliveryTubeQty', label: '发货管子数量'},
       ],
     }

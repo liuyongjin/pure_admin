@@ -146,7 +146,6 @@ export default {
       exportBoxVisible: false,
       isCustomer: false,
       columnList: [
-        {prop: 'spec', label: '规格'},
         {prop: 'frpSpec', label: 'FRP规格'},
         {prop: 'deliveryDate', label: '发货日期'},
         {prop: 'customerCode', label: '客户（部门）编码'},
