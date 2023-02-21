@@ -20,7 +20,7 @@
             <el-form-item label="FRP规格" prop="frpSpec">
               <el-select v-model="dataForm.frpSpec" filterable placeholder="请选择" clearable
                          :style='{"width":"100%"}'>
-                <el-option v-for="(item, index) in frpSpecSelector"
+                <el-option v-for="(item) in frpSpecSelector"
                            :key="item.frpSpec" :label="item.frpSpec" :value="item.frpSpec">
                 </el-option>
               </el-select>

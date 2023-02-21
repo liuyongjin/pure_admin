@@ -11,12 +11,12 @@
 <!--              <el-input v-model="query.spec" placeholder="请输入" clearable></el-input>-->
 <!--            </el-form-item>-->
 <!--          </el-col>-->
-          <el-col :span="6">
+          <el-col :xs="24" :sm="12" :md="8"  :lg="6">
             <el-form-item label="FRP规格">
               <el-input v-model="query.frpSpec" placeholder="请输入" clearable></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="6">
+          <el-col  :xs="24" :sm="12" :md="8" :lg="6">
             <el-form-item label="发货日期">
               <el-date-picker v-model="query.deliveryDate" type="daterange"
                               value-format="timestamp" format="yyyy-MM-dd" start-placeholder="开始日期"
@@ -24,21 +24,16 @@
               </el-date-picker>
             </el-form-item>
           </el-col>
-          <el-col :span="6">
+          <el-col  :xs="24" :sm="12" :md="8" :lg="6" >
             <el-form-item label="客户">
               <el-input v-model="query.customerName" placeholder="请输入" clearable></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="6">
+          <el-col  :xs="24" :sm="12" :md="8"  :lg="6">
             <el-form-item>
               <el-button type="primary" icon="el-icon-search" @click="search()">查询</el-button>
               <el-button icon="el-icon-refresh-right" @click="reset()">重置</el-button>
-              <el-button type="text" icon="el-icon-arrow-down" @click="showAll=true" v-if="!showAll">
-                展开
-              </el-button>
-              <el-button type="text" icon="el-icon-arrow-up" @click="showAll=false" v-else>
-                收起
-              </el-button>
+              
             </el-form-item>
           </el-col>
         </el-form>

@@ -10,7 +10,7 @@
             <el-form-item label="客户" prop="customerCode">
               <el-select v-model="dataForm.customerCode" filterable placeholder="请选择" clearable
                          @change="customerChange" :style='{"width":"100%"}'>
-                <el-option v-for="(item, index) in customerSelector"
+                <el-option v-for="(item) in customerSelector"
                            :key="item.enCode" :label="item.fullName" :value="item.enCode">
                 </el-option>
               </el-select>
@@ -28,7 +28,7 @@
             <el-form-item label="铜箔规格" prop="spec">
               <el-select v-model="dataForm.spec" filterable placeholder="请选择" clearable
                          :style='{"width":"100%"}'>
-                <el-option v-for="(item, index) in specSelector"
+                <el-option v-for="(item) in specSelector"
                            :key="item.spec" :label="item.spec" :value="item.spec">
                 </el-option>
               </el-select>
@@ -38,7 +38,7 @@
             <el-form-item label="FRP规格" prop="frpSpec">
               <el-select v-model="dataForm.frpSpec" filterable placeholder="请选择" clearable
                          :style='{"width":"100%"}'>
-                <el-option v-for="(item, index) in frpSpecSelector"
+                <el-option v-for="(item) in frpSpecSelector"
                            :key="item.frpSpec" :label="item.frpSpec" :value="item.frpSpec">
                 </el-option>
               </el-select>
