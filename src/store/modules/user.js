@@ -1,5 +1,6 @@
 import { login, logout, getUserInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import { Message } from 'element-ui';
 import md5 from 'js-md5';
 import qs from 'qs'
 
@@ -59,6 +60,17 @@ const user = {
           scope: 'all',
           grant_type: 'password'
         })).then(response => {
+
+          // this.$message({
+          //   message: '恭喜你，这是一条成功消息',
+          //   type: 'success'
+          // });
+          Message({
+            message:'登陆成功',
+            type: 'success',
+            duration: 5 * 1000
+          })
+
           const { data } = response.data
           const layoutList = ['classic', 'functional', 'plain', 'blend']
           let layoutType = data.theme && layoutList.indexOf(data.theme) > -1 ? data.theme : 'classic'
@@ -130,7 +142,7 @@ const user = {
         setToken(role)
         getUserInfo(role).then(response => {
           const data = response.data
-          console.log('11111111111111',response.data);
+          
           commit('SET_ROLES', data.roles)
           commit('SET_NAME', data.name)
           commit('SET_AVATAR', '')
