@@ -68,7 +68,7 @@ const user = {
           Message({
             message:'登陆成功',
             type: 'success',
-            duration: 5 * 1000
+            duration:2 * 1000
           })
 
           const { data } = response.data
