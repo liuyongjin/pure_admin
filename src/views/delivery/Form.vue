@@ -45,14 +45,14 @@
             </el-form-item>
           </el-col>
           <el-col :span="24">
-            <el-form-item label="发货木箱数量" prop="deliveryBoxQty">
+            <el-form-item label="发货木箱(个)" prop="deliveryBoxQty">
               <el-input-number v-model="dataForm.deliveryBoxQty" placeholder="数字文本"
                                style="width: 100%;" :step="1" controls-position='right'>
               </el-input-number>
             </el-form-item>
           </el-col>
           <el-col :span="24">
-            <el-form-item label="发货管子数量" prop="deliveryTubeQty">
+            <el-form-item label="发货管子(根)" prop="deliveryTubeQty">
               <el-input-number v-model="dataForm.deliveryTubeQty" placeholder="数字文本"
                                style="width: 100%;" :step="1" controls-position='right'>
               </el-input-number>

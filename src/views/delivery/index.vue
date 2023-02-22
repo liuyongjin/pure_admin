@@ -59,9 +59,9 @@
       />
       <el-table-column prop="frpSpec" label="FRP规格" width="0" align="left"
       />
-      <el-table-column prop="deliveryBoxQty" label="发货木箱数量" width="0" align="left"
+      <el-table-column prop="deliveryBoxQty" label="发货木箱(个)" width="0" align="left"
       />
-      <el-table-column prop="deliveryTubeQty" label="发货管子数量" width="0" align="left"
+      <el-table-column prop="deliveryTubeQty" label="发货管子(根)" width="0" align="left"
       />
       <el-table-column label="操作" fixed="right"
                        width="100">
@@ -128,8 +128,8 @@ export default {
         {prop: 'deliveryDate', label: '发货日期'},
         {prop: 'spec', label: '铜箔规格'},
         {prop: 'frpSpec', label: 'FRP规格'},
-        {prop: 'deliveryBoxQty', label: '发货木箱数量'},
-        {prop: 'deliveryTubeQty', label: '发货管子数量'},
+        {prop: 'deliveryBoxQty', label: '发货木箱(个)'},
+        {prop: 'deliveryTubeQty', label: '发货管子(根)'},
       ],
     }
   },
