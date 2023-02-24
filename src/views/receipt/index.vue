@@ -17,7 +17,7 @@
             </el-form-item>
           </el-col>
           <el-col  :xs="24" :sm="12" :md="8" :lg="6">
-            <el-form-item label="发货日期">
+            <el-form-item label="回收日期">
               <el-date-picker v-model="query.deliveryDate" type="daterange"
                               value-format="timestamp" format="yyyy-MM-dd" start-placeholder="开始日期"
                               end-placeholder="结束日期">
@@ -60,7 +60,7 @@
 <!--          />-->
           <el-table-column prop="frpSpec" label="FRP规格" width="0" align="left"
           />
-          <el-table-column prop="deliveryDate" label="发货日期" width="0" align="left"
+          <el-table-column prop="deliveryDate" label="回收日期" width="0" align="left"
           />
           <el-table-column prop="customerName" label="客户" width="0" align="left"
           />
@@ -142,7 +142,7 @@ export default {
       isCustomer: false,
       columnList: [
         {prop: 'frpSpec', label: 'FRP规格'},
-        {prop: 'deliveryDate', label: '发货日期'},
+        {prop: 'deliveryDate', label: '回收日期'},
         {prop: 'customerCode', label: '客户（部门）编码'},
         {prop: 'customerName', label: '客户（部门）名称'},
         {prop: 'status', label: '状态 1已提交 2已确认'},

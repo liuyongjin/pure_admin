@@ -27,7 +27,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="24">
-            <el-form-item label="发货日期" prop="deliveryDate">
+            <el-form-item label="回收日期" prop="deliveryDate">
               <el-date-picker v-model="dataForm.deliveryDate" placeholder="请选择" clearable :style='{"width":"100%"}'
                               type="date" format="yyyy-MM-dd" value-format="timestamp">
 
