@@ -1,3 +1,5 @@
+const define = require('./src/utils/define.js')
+
 module.exports = {
     chainWebpack: config => {
         // 一个规则里的 基础Loader
@@ -16,6 +18,7 @@ module.exports = {
                 symbolId: 'icon-[name]'
             })
 
-    }
+    },
+
 
 }

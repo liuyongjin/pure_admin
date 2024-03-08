@@ -1,0 +1,22 @@
+import JNPFTreeSelect from '@/components/JNPF-treeSelect'
+import topOperation from '@/components/JNPF-topOperation/index'
+import tableOperation from '@/components/JNPF-tableOperation'
+import Pagination from '@/components/Pagination'
+import JNPFTable from '@/components/JNPF-table'
+import UserBox from '@/components/JNPF-userBox'
+import Screenfull from '@/components/Screenfull'
+
+
+
+export default {
+    install(Vue, options) {
+      Vue.component('JNPFTreeSelect', JNPFTreeSelect)
+      Vue.component('topOpts', topOperation)
+      Vue.component('tableOpts', tableOperation)
+      Vue.component('Pagination', Pagination)
+      Vue.component('JNPFTable', JNPFTable)
+      Vue.component('UserBox', UserBox)
+      Vue.component('Screenfull', Screenfull)
+
+    }
+  }

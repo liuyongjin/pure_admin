@@ -8,14 +8,14 @@
         <lang-select class="set-language" />
       </div>
 
-      <el-form-item prop="username">
+      <el-form-item prop="account">
         <span class="svg-container">
           <svg-icon icon-class="user" />
         </span>
         <el-input
-          v-model="loginForm.username"
+          v-model="loginForm.account"
           :placeholder="$t('login.username')"
-          name="username"
+          name="account"
           type="text"
           auto-complete="on"
         />
@@ -71,12 +71,12 @@ export default {
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '123456'
+        account: null,
+        password: null
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        account: [{ required: true, trigger: 'blur' }],
+        password: [{ required: true, trigger: 'blur' }]
       },
       passwordType: 'password',
       loading: false,
@@ -108,10 +108,10 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true
+          this.loading = true;
           this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
             this.loading = false
-            this.$router.push({ path: this.redirect || '/' })
+            this.$router.push({ path: this.redirect || '/cus/delivery' })
           }).catch(() => {
             this.loading = false
           })
