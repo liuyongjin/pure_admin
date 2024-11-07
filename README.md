@@ -13,6 +13,10 @@
 ## 项目启动
 
 ```bash
+# node version and npm version
+node: >= 8.9
+npm: >= 3.0.0
+
 # clone the project
 git clone https://github.com/liuyongjin/pure_admin.git
 
@@ -30,13 +34,11 @@ npm run serve
 
 [vue-element-admin](https://panjiachen.github.io/vue-element-admin-site/zh/guide).
 
-
 ## 项目截图
 
 ![avatar](./public/screen1.png)
 
 ![avatar](./public/screen.png)
-
 
 ## License
 

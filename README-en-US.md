@@ -13,6 +13,10 @@ Simplify the official project [vue - element - admin] (https://github.com/PanJia
 ## Project start
 
 ```bash
+# node version and npm version
+node: >= 8.9
+npm: >= 3.0.0
+
 # clone the project
 git clone https://github.com/liuyongjin/pure_admin.git
 
@@ -29,7 +33,6 @@ npm run serve
 ### The official address
 
 [vue-element-admin](https://panjiachen.github.io/vue-element-admin-site/zh/guide).
-
 
 ## Project screenshots
 
